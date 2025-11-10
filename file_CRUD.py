@@ -1,5 +1,7 @@
 import csv
 
+from CRUD import print_holidays
+
 headers = ['id', 'country', 'city', 'price', 'accomodation']
 def load_holidays():
     with open("lithuania_accommodation.csv", mode='r',encoding="utf-8") as file:
@@ -57,20 +59,3 @@ def delete_holidays(holidays):
             print("Atostogos sėkmingai ištrintos")
             break
     save_holidays(holidays)
-
-def print_holidays(holidays):
-    print("Stai atostogos")
-    for hol in holidays:
-        print(f'{str(hol['id']) + '.':<3} Šalis / miestas {hol['country']:<12}/ {hol['city']:<10}, kaina'
-              f' {hol['price']}, '
-              f'apgyvendinimas {hol['accomodation']:>12}')
-
-
-def print_options():
-    print("--------------------------------------------------------------------------")
-    print("1. Atvaizduoti atostogu pasirinkimus")
-    print("2. Įtraukti atostogas i sarasa")
-    print("3. koreguoti atostogas")
-    print("4. šalinti atostogas")
-    print("5. išeiti iš programos")
-    print("-----------------------------Pasirinkite:---------------------------------")
